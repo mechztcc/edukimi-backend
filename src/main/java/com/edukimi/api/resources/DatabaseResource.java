@@ -1,6 +1,7 @@
 package com.edukimi.api.resources;
 
 import com.edukimi.api.domain.Database;
+import com.edukimi.api.dto.DatabaseDTO;
 import com.edukimi.api.services.DatabaseService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,10 @@ public class DatabaseResource {
     private DatabaseService service;
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public ResponseEntity<Void> create(@RequestBody Database database) {
-        database = service.create(database);
+    public ResponseEntity<Void> create(@RequestBody DatabaseDTO objDto) {
+        Database obj = service.create(objDto);
         return ResponseEntity.noContent().build();
+        // TODO implementar uma camada DTO para receber um objeto com id do usuário + database, realizar a busca desse usuário no banco,
+        // adicionar esse usuário ao obj database, e então, salvar no banco.
     }
 }
