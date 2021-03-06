@@ -1,11 +1,16 @@
 package com.edukimi.api.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 
 
 @Entity
@@ -25,17 +30,32 @@ public class User implements Serializable {
 
     private String password;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Database> databases = new ArrayList<>();
+
 
     public User() {
     }
 
 
-    public User(String firstName, String secondName, String email, String password) {
-
+    public User(Integer id, String firstName, String secondName, String email, String password ) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.email = email;
         this.password = password;
+        this.id = id;
+
+    }
+
+
+ 
+
+    public Integer getId() {
+        return this.id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
 
