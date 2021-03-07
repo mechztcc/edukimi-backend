@@ -1,5 +1,6 @@
 package com.edukimi.api.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.edukimi.api.domain.Database;
@@ -24,6 +25,11 @@ public class DatabaseService {
         Optional<User> obj = userRepository.findById(objDto.getUserId());
         Database data = new Database(null, objDto.getName(), objDto.getStatus(), obj.get());
         data = databaseRepository.save(data);
+        return data;
+    }
+
+    public List<Database> findAll(Integer userId) {
+        List<Database> data = databaseRepository.findAllByUserId(userId);
         return data;
     }
 }
