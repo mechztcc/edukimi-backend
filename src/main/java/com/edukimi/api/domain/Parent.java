@@ -2,10 +2,12 @@ package com.edukimi.api.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Parent implements Serializable {
@@ -20,6 +22,9 @@ public class Parent implements Serializable {
     private String email;
 
     private String phone;
+
+    @OneToOne(mappedBy = "parent", cascade = CascadeType.ALL)
+    private Student student;
 
 
 
