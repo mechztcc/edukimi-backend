@@ -13,6 +13,7 @@ public interface DatabaseRepository extends JpaRepository<Database, Integer>{
     
     // public Database findAllByUserId(Integer id);
     // TODO criar método para buscar databases usando 'fk user_id'
+    
 
     List<Database> findAllByUserId(Integer userId);
 }

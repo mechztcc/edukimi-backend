@@ -18,6 +18,8 @@ public class Student implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    
+
     private String registration;
 
     private Boolean status;
@@ -42,11 +44,13 @@ public class Student implements Serializable {
     public Student() {
     }
 
-    public Student(Integer id, String registration, Boolean status, String birth) {
+    public Student(Integer id, String registration, Boolean status, String birth, Parent parent, Address address) {
         this.id = id;
         this.registration = registration;
         this.status = status;
         this.birth = birth;
+        this.parent = parent;
+        this.address = address;
     }
 
     public Integer getId() {

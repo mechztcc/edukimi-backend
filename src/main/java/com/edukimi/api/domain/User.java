@@ -39,15 +39,24 @@ public class User implements Serializable {
     }
 
 
-    public User(Integer id, String firstName, String secondName, String email, String password ) {
+    public User(Integer id, String firstName, String secondName, String email, String password) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.email = email;
         this.password = password;
         this.id = id;
+        
 
     }
 
+
+    public List<Database> getDatabases() {
+        return this.databases;
+    }
+
+    public void setDatabases(List<Database> databases) {
+        this.databases = databases;
+    }
 
  
 
