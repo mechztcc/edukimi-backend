@@ -24,13 +24,18 @@ public class Student implements Serializable {
 
     private String birth;
 
-
-    // private Classroom classroom;
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
+   
     
 
     @OneToOne
     @JoinColumn(name = "parent_id")
     private Parent parent;
+
+    // @OneToOne
+    // @JoinColumn(name = "address_id")
     // private Address address;
 
 
