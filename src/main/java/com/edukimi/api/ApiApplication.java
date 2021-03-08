@@ -3,11 +3,13 @@ package com.edukimi.api;
 import java.util.Arrays;
 
 import com.edukimi.api.domain.Address;
+import com.edukimi.api.domain.Classroom;
 import com.edukimi.api.domain.Database;
 import com.edukimi.api.domain.Parent;
 import com.edukimi.api.domain.Student;
 import com.edukimi.api.domain.User;
 import com.edukimi.api.repositories.AddressRepository;
+import com.edukimi.api.repositories.ClassroomRepository;
 import com.edukimi.api.repositories.DatabaseRepository;
 import com.edukimi.api.repositories.ParentRepository;
 import com.edukimi.api.repositories.StudentRepository;
@@ -37,6 +39,8 @@ public class ApiApplication implements CommandLineRunner {
 	@Autowired
 	AddressRepository addressRepository;
 
+	@Autowired
+	ClassroomRepository classroomRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ApiApplication.class, args);
@@ -50,15 +54,23 @@ public class ApiApplication implements CommandLineRunner {
 
 		Database data1 = new Database(null, "Santa maria", true, user1);
 		Database data2 = new Database(null, "Necy amazonas", true, user1);
-		// Database data3 = new Database(null, "Fratchesca", true, user2);
+
+		Classroom clas1 = new Classroom(null, "6 A", true, data1);
+		Classroom clas2 = new Classroom(null, "7 c", true, data1);
+		Classroom clas3 = new Classroom(null, "8 A", true, data2);
 		
 		user1.setDatabases(Arrays.asList(data1));
-		// user2.setDatabases(Arrays.asList(data3));
-
-		// databaseRepository.save(data3);
-
+		
+		
 		userRepository.save(user1);
+
 		databaseRepository.save(data1);
+		databaseRepository.save(data2);
+		
+		classroomRepository.save(clas1);
+		classroomRepository.save(clas2);
+		classroomRepository.save(clas3);
+		// Existe um erro ao cadastrar dados no database2
 		
 		userRepository.save(user2);
 		databaseRepository.save(data2);

@@ -1,10 +1,7 @@
 package com.edukimi.api.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,13 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
-public class Database implements Serializable {
+public class Classroom implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -30,42 +25,20 @@ public class Database implements Serializable {
     private Boolean status;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "database_id")
     @JsonIgnore
-    private User user;
+    Database database;
+    
 
-    @OneToMany(mappedBy = "database", cascade = CascadeType.ALL)
-    List<Classroom> classrooms = new ArrayList<>();
-
-    public Database() {
+    public Classroom() {
     }
 
-    public Database(Integer id, String name, Boolean status, User user) {
+    public Classroom(Integer id, String name, Boolean status, Database database) {
         this.id = id;
         this.name = name;
         this.status = status;
-        this.user = user;
+        this.database = database;
     }
-
-    // @JsonIgnore
-    public List<Classroom> getClassrooms() {
-        return this.classrooms;
-    }
-
-    public void setClassrooms(List<Classroom> classrooms) {
-        this.classrooms = classrooms;
-    }
-
-
-    public User getUser() {
-        return this.user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-
 
     public Integer getId() {
         return this.id;
@@ -111,7 +84,7 @@ public class Database implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Database other = (Database) obj;
+		Classroom other = (Classroom) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -119,6 +92,5 @@ public class Database implements Serializable {
 			return false;
 		return true;
 	}
-
 
 }
