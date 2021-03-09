@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/school")
 public class SchoolResource {
-    
+
     @Autowired
     private SchoolService schoolService;
 
@@ -32,19 +32,23 @@ public class SchoolResource {
         return ResponseEntity.noContent().build();
     }
 
-    @RequestMapping( value = "/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Void> update(@RequestBody SchoolDTO objDto, @PathVariable Integer id) {
         School school = schoolService.update(objDto, id);
         return ResponseEntity.status(201).build();
     }
 
+    // @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    // public ResponseEntity<List<School>> findAllByUserId(@PathVariable Integer id) {
+    //     List<School> schools = schoolService.findAll(id);
+
+    //     return ResponseEntity.ok(schools);
+    // }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<List<School>> findAllByUserId(@PathVariable Integer id) {
-        List<School> schools = schoolService.findAll(id);
-
+    public ResponseEntity<School> findById(@PathVariable Integer id) {
+        School schools = schoolService.findById(id);
         return ResponseEntity.ok(schools);
     }
-
 
 }
