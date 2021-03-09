@@ -32,4 +32,17 @@ public class SchoolService {
         List<School> school = schoolRepository.findAllByUserId(userId);
         return school;
     }
+
+    public School findById(Integer id) {
+        Optional<School> obj = schoolRepository.findById(id);
+        return obj.orElseThrow(() -> new RuntimeException("Escola não encontrada!"));
+    }
+
+    public School update(SchoolDTO schoolDto, Integer id) {
+        School obj = schoolRepository.findById(id).get();
+        obj.setName(schoolDto.getName());
+        obj.setStatus(schoolDto.getStatus());
+        schoolRepository.save(obj);
+        return obj;
+    }
 }

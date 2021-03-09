@@ -1,5 +1,6 @@
 package com.edukimi.api.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.edukimi.api.domain.User;
@@ -19,8 +20,16 @@ public class UserService {
         return user;
     }
 
+    public List<User> findAll() {
+        List<User> users = repo.findAll();
+        return users;
+    }
+
     public User findById(Integer id) {
         Optional<User> obj = repo.findById(id);
         return obj.orElseThrow(() -> new RuntimeException("Usuário não encontrado!"));
     }
+
+
+ 
 }
