@@ -25,19 +25,19 @@ public class Classroom implements Serializable {
     private Boolean status;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "database_id")
+    @JoinColumn(name = "school_id")
     @JsonIgnore
-    Database database;
+    School school;
     
 
     public Classroom() {
     }
 
-    public Classroom(Integer id, String name, Boolean status, Database database) {
+    public Classroom(Integer id, String name, Boolean status, School school) {
         this.id = id;
         this.name = name;
         this.status = status;
-        this.database = database;
+        this.school = school;
     }
 
     public Integer getId() {

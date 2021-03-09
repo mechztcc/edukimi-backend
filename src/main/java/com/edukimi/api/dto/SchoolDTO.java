@@ -2,7 +2,7 @@ package com.edukimi.api.dto;
 
 import java.io.Serializable;
 
-public class DatabaseDTO implements Serializable {
+public class SchoolDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
@@ -13,10 +13,10 @@ public class DatabaseDTO implements Serializable {
     private Integer userId;
 
 
-    public DatabaseDTO() {
+    public SchoolDTO() {
     }
 
-    public DatabaseDTO(String name, Boolean status, Integer userId) {
+    public SchoolDTO(String name, Boolean status, Integer userId) {
         this.name = name;
         this.status = status;
         this.userId = userId;

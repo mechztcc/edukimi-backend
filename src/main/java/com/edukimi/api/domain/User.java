@@ -32,7 +32,7 @@ public class User implements Serializable {
     private String password;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Database> databases = new ArrayList<>();
+    private List<School> schools = new ArrayList<>();
 
 
     public User() {
@@ -50,12 +50,12 @@ public class User implements Serializable {
     }
 
 
-    public List<Database> getDatabases() {
-        return this.databases;
+    public List<School> getSchools() {
+        return this.schools;
     }
 
-    public void setDatabases(List<Database> databases) {
-        this.databases = databases;
+    public void setSchools(List<School> databases) {
+        this.schools = databases;
     }
 
  

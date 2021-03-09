@@ -4,13 +4,13 @@ import java.util.Arrays;
 
 import com.edukimi.api.domain.Address;
 import com.edukimi.api.domain.Classroom;
-import com.edukimi.api.domain.Database;
+import com.edukimi.api.domain.School;
 import com.edukimi.api.domain.Parent;
 import com.edukimi.api.domain.Student;
 import com.edukimi.api.domain.User;
 import com.edukimi.api.repositories.AddressRepository;
 import com.edukimi.api.repositories.ClassroomRepository;
-import com.edukimi.api.repositories.DatabaseRepository;
+import com.edukimi.api.repositories.SchoolRepository;
 import com.edukimi.api.repositories.ParentRepository;
 import com.edukimi.api.repositories.StudentRepository;
 import com.edukimi.api.repositories.UserRepository;
@@ -28,7 +28,7 @@ public class ApiApplication implements CommandLineRunner {
 	UserRepository userRepository;
 
 	@Autowired
-	DatabaseRepository databaseRepository;
+	SchoolRepository schoolRepository;
 
 	@Autowired
 	StudentRepository studentRepository;
@@ -52,20 +52,20 @@ public class ApiApplication implements CommandLineRunner {
 		User user1 = new User(null, "Alberto", "Paiva", "alberto@email.com", "1234");
 		User user2 = new User(null, "Claudio", "Ferreira", "claudio@email.com", "1234");
 
-		Database data1 = new Database(null, "Santa maria", true, user1);
-		Database data2 = new Database(null, "Necy amazonas", true, user1);
+		School school1 = new School(null, "Santa maria", true, user1);
+		School school2 = new School(null, "Necy amazonas", true, user1);
 
-		Classroom clas1 = new Classroom(null, "6 A", true, data1);
-		Classroom clas2 = new Classroom(null, "7 c", true, data1);
-		Classroom clas3 = new Classroom(null, "8 A", true, data2);
+		Classroom clas1 = new Classroom(null, "6 A", true, school1);
+		Classroom clas2 = new Classroom(null, "7 c", true, school1);
+		Classroom clas3 = new Classroom(null, "8 A", true, school2);
 		
-		user1.setDatabases(Arrays.asList(data1));
+		user1.setSchools(Arrays.asList(school1));
 		
 		
 		userRepository.save(user1);
 
-		databaseRepository.save(data1);
-		databaseRepository.save(data2);
+		schoolRepository.save(school1);
+		schoolRepository.save(school2);
 		
 		classroomRepository.save(clas1);
 		classroomRepository.save(clas2);
@@ -73,7 +73,7 @@ public class ApiApplication implements CommandLineRunner {
 		// Existe um erro ao cadastrar dados no database2
 		
 		userRepository.save(user2);
-		databaseRepository.save(data2);
+		schoolRepository.save(school2);
 
 
 		Parent par1 = new Parent(null, "Robertinho carrara", "roberto@email.com", "81 9-8888-7777");

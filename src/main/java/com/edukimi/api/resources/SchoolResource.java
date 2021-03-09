@@ -1,12 +1,10 @@
 package com.edukimi.api.resources;
 
-import java.util.Arrays;
 import java.util.List;
 
-import com.edukimi.api.domain.Database;
-import com.edukimi.api.domain.User;
-import com.edukimi.api.dto.DatabaseDTO;
-import com.edukimi.api.services.DatabaseService;
+import com.edukimi.api.domain.School;
+import com.edukimi.api.dto.SchoolDTO;
+import com.edukimi.api.services.SchoolService;
 import com.edukimi.api.services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,27 +16,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/database")
-public class DatabaseResource {
+@RequestMapping(value = "/school")
+public class SchoolResource {
     
     @Autowired
-    private DatabaseService databaseService;
+    private SchoolService schoolService;
 
     @Autowired
     private UserService userService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Void> create(@RequestBody DatabaseDTO objDto) {
-        Database obj = databaseService.create(objDto);
+    public ResponseEntity<Void> create(@RequestBody SchoolDTO objDto) {
+        School obj = schoolService.create(objDto);
         return ResponseEntity.noContent().build();
     }
 
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<List<Database>> findAllByUserId(@PathVariable Integer id) {
-        List<Database> databases = databaseService.findAll(id);
+    public ResponseEntity<List<School>> findAllByUserId(@PathVariable Integer id) {
+        List<School> schools = schoolService.findAll(id);
 
-        return ResponseEntity.ok(databases);
+        return ResponseEntity.ok(schools);
     }
 
 

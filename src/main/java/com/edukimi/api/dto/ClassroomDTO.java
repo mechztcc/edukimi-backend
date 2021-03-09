@@ -9,16 +9,16 @@ public class ClassroomDTO implements Serializable {
 
     private Boolean status;
 
-    private Integer databaseId;
+    private Integer schoolId;
 
 
     public ClassroomDTO() {
     }
 
-    public ClassroomDTO(String name, Boolean status, Integer databaseId) {
+    public ClassroomDTO(String name, Boolean status, Integer schoolId) {
         this.name = name;
         this.status = status;
-        this.databaseId = databaseId;
+        this.schoolId = schoolId;
     }
 
     public String getName() {
@@ -42,11 +42,11 @@ public class ClassroomDTO implements Serializable {
     }
 
     public Integer getDatabaseId() {
-        return this.databaseId;
+        return this.schoolId;
     }
 
-    public void setDatabaseId(Integer databaseId) {
-        this.databaseId = databaseId;
+    public void setDatabaseId(Integer schoolId) {
+        this.schoolId = schoolId;
     }
 
     

@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
-public class Database implements Serializable {
+public class School implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -34,13 +34,13 @@ public class Database implements Serializable {
     @JsonIgnore
     private User user;
 
-    @OneToMany(mappedBy = "database", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "school", cascade = CascadeType.ALL)
     List<Classroom> classrooms = new ArrayList<>();
 
-    public Database() {
+    public School() {
     }
 
-    public Database(Integer id, String name, Boolean status, User user) {
+    public School(Integer id, String name, Boolean status, User user) {
         this.id = id;
         this.name = name;
         this.status = status;
@@ -111,7 +111,7 @@ public class Database implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Database other = (Database) obj;
+		School other = (School) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
