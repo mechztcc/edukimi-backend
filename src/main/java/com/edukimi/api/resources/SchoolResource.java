@@ -1,6 +1,6 @@
 package com.edukimi.api.resources;
 
-import java.util.List;
+import java.net.URI;
 
 import com.edukimi.api.domain.School;
 import com.edukimi.api.dto.SchoolDTO;
@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping(value = "/school")
@@ -29,7 +30,8 @@ public class SchoolResource {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Void> create(@RequestBody SchoolDTO objDto, @RequestHeader Integer userId) {
         School obj = schoolService.create(objDto, userId);
-        return ResponseEntity.noContent().build();
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+        return ResponseEntity.created(uri).build();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
