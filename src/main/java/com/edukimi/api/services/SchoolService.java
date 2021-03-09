@@ -21,8 +21,8 @@ public class SchoolService {
     @Autowired
     private UserRepository userRepository;
 
-    public School create(SchoolDTO objDto) {
-        Optional<User> obj = userRepository.findById(objDto.getUserId());
+    public School create(SchoolDTO objDto, Integer userId) {
+        Optional<User> obj = userRepository.findById(userId);
         School school = new School(null, objDto.getName(), objDto.getStatus(), obj.get());
         school = schoolRepository.save(school);
         return school;

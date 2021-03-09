@@ -10,16 +10,16 @@ public class SchoolDTO implements Serializable {
 
     private Boolean status;
 
-    private Integer userId;
+
 
 
     public SchoolDTO() {
     }
 
-    public SchoolDTO(String name, Boolean status, Integer userId) {
+    public SchoolDTO(String name, Boolean status) {
         this.name = name;
         this.status = status;
-        this.userId = userId;
+ 
     }
 
     public String getName() {
@@ -42,13 +42,7 @@ public class SchoolDTO implements Serializable {
         this.status = status;
     }
 
-    public Integer getUserId() {
-        return this.userId;
-    }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
 
 
 }
