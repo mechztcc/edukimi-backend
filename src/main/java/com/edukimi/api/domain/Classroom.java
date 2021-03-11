@@ -2,6 +2,7 @@ package com.edukimi.api.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -28,6 +30,10 @@ public class Classroom implements Serializable {
     @JoinColumn(name = "school_id")
     @JsonIgnore
     School school;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "classroom", cascade = CascadeType.ALL)
+    private Student student;
     
 
     public Classroom() {
@@ -67,6 +73,24 @@ public class Classroom implements Serializable {
     public void setStatus(Boolean status) {
         this.status = status;
     }
+
+
+    public School getSchool() {
+        return this.school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
+
+    public Student getStudent() {
+        return this.student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
 
     @Override
 	public int hashCode() {

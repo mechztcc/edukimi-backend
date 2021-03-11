@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Parent implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -23,6 +25,7 @@ public class Parent implements Serializable {
 
     private String phone;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "parent", cascade = CascadeType.ALL)
     private Student student;
 

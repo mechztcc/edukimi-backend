@@ -37,6 +37,8 @@ public class School implements Serializable {
     @OneToMany(mappedBy = "school", cascade = CascadeType.ALL)
     List<Classroom> classrooms = new ArrayList<>();
 
+   
+
     public School() {
     }
 

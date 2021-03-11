@@ -83,7 +83,10 @@ public class ApiApplication implements CommandLineRunner {
 		addressRepository.save(addr1);
 		
 		
-		Student std1 = new Student(null, "222", true, "22/22/2222", par1, addr1);
+		Student std1 = new Student(null, "Paulo", "222", true, "22/22/2222");
+		std1.setAddress(addr1);
+		std1.setParent(par1);
+		std1.setClassroom(clas1);
 		studentRepository.save(std1);
 		
 

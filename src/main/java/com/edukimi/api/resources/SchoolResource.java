@@ -53,4 +53,6 @@ public class SchoolResource {
         return ResponseEntity.ok(schools);
     }
 
+
+
 }

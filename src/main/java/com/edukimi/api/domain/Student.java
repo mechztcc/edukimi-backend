@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class Student implements Serializable {
@@ -18,7 +20,7 @@ public class Student implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    
+    private String name;
 
     private String registration;
 
@@ -30,29 +32,30 @@ public class Student implements Serializable {
     @JoinColumn(name = "address_id")
     private Address address;
    
-    
 
     @OneToOne
     @JoinColumn(name = "parent_id")
     private Parent parent;
 
-    // @OneToOne
-    // @JoinColumn(name = "address_id")
-    // private Address address;
+
+    @OneToOne
+    @JoinColumn(name = "classroom_id")
+    private Classroom classroom;
 
 
     public Student() {
     }
 
-    public Student(Integer id, String registration, Boolean status, String birth, Parent parent, Address address) {
+    public Student(Integer id, String name, String registration, Boolean status, String birth) {
         this.id = id;
         this.registration = registration;
         this.status = status;
         this.birth = birth;
-        this.parent = parent;
-        this.address = address;
+        this.name = name;
+  
     }
 
+    
     public Integer getId() {
         return this.id;
     }
@@ -60,6 +63,42 @@ public class Student implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    public Address getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public Parent getParent() {
+        return this.parent;
+    }
+
+    public void setParent(Parent parent) {
+        this.parent = parent;
+    }
+
+
+    public Classroom getClassroom() {
+        return this.classroom;
+    }
+
+    public void setClassroom(Classroom classroom) {
+        this.classroom = classroom;
+    }
+
+
 
     public String getRegistration() {
         return this.registration;

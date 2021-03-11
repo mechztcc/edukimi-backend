@@ -45,4 +45,7 @@ public class SchoolService {
         schoolRepository.save(obj);
         return obj;
     }
+
+
+
 }
