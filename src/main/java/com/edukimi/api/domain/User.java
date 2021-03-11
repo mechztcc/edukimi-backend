@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 
@@ -29,6 +31,7 @@ public class User implements Serializable {
 
     private String email;
 
+    @JsonIgnore
     private String password;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
