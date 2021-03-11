@@ -24,7 +24,7 @@ public class ClassroomService {
     private SchoolRepository schoolRepository;
 
     public Classroom create(ClassroomDTO classDto) {
-        Optional<School> database = schoolRepository.findById(classDto.getDatabaseId());
+        Optional<School> database = schoolRepository.findById(classDto.getSchoolId());
         Classroom classroom = new Classroom(null, classDto.getName(), classDto.isStatus(), database.get());
         classroomRepository.save(classroom);
         return classroom;

@@ -11,6 +11,14 @@ public class ClassroomDTO implements Serializable {
 
     private Integer schoolId;
 
+    public Integer getSchoolId() {
+        return this.schoolId;
+    }
+
+    public void setSchoolId(Integer schoolId) {
+        this.schoolId = schoolId;
+    }
+
 
     public ClassroomDTO() {
     }
@@ -41,13 +49,6 @@ public class ClassroomDTO implements Serializable {
         this.status = status;
     }
 
-    public Integer getDatabaseId() {
-        return this.schoolId;
-    }
-
-    public void setDatabaseId(Integer schoolId) {
-        this.schoolId = schoolId;
-    }
 
     
 }
