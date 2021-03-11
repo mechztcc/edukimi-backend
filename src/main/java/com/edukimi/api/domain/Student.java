@@ -7,9 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -38,7 +37,7 @@ public class Student implements Serializable {
     private Parent parent;
 
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "classroom_id")
     private Classroom classroom;
 

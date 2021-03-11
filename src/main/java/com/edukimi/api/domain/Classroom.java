@@ -1,6 +1,7 @@
 package com.edukimi.api.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -10,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -32,8 +33,8 @@ public class Classroom implements Serializable {
     School school;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "classroom", cascade = CascadeType.ALL)
-    private Student student;
+    @OneToMany(mappedBy = "classroom", cascade = CascadeType.ALL)
+    private List<Student> student;
     
 
     public Classroom() {
@@ -83,11 +84,11 @@ public class Classroom implements Serializable {
         this.school = school;
     }
 
-    public Student getStudent() {
+    public List<Student> getStudent() {
         return this.student;
     }
 
-    public void setStudent(Student student) {
+    public void setStudent(List<Student> student) {
         this.student = student;
     }
 
