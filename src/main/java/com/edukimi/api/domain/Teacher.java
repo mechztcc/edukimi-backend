@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Event implements Serializable {
+public class Teacher implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
@@ -19,28 +19,22 @@ public class Event implements Serializable {
 
     private String name;
 
-    private String date;
-
-    private String description;
+    private Boolean status;
 
     @ManyToOne
     @JoinColumn(name = "school_id")
     private School school;
 
 
-    public Event() {
+    public Teacher() {
     }
 
-    public Event(Integer id, String name, String date, String description, School school) {
+    public Teacher(Integer id, String name, Boolean status, School school) {
         this.id = id;
         this.name = name;
-        this.date = date;
-        this.description = description;
+        this.status = status;
         this.school = school;
-
     }
-
-
 
     public Integer getId() {
         return this.id;
@@ -58,20 +52,16 @@ public class Event implements Serializable {
         this.name = name;
     }
 
-    public String getDate() {
-        return this.date;
+    public Boolean isStatus() {
+        return this.status;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public Boolean getStatus() {
+        return this.status;
     }
 
-    public String getDescription() {
-        return this.description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     public School getSchool() {
@@ -81,6 +71,30 @@ public class Event implements Serializable {
     public void setSchool(School school) {
         this.school = school;
     }
+    
+    @Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Teacher other = (Teacher) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
 
 }

@@ -40,6 +40,9 @@ public class School implements Serializable {
 
     @OneToMany(mappedBy = "school", cascade = CascadeType.ALL)
     List<Event> events = new ArrayList<>();
+
+    @OneToMany(mappedBy = "school", cascade = CascadeType.ALL)
+    List<Teacher> teachers = new ArrayList<>();
    
 
     public School() {

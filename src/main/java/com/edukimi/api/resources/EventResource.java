@@ -40,7 +40,6 @@ public class EventResource {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Event> create(@RequestBody EventDTO eventDto) {
-
         Event event = eventService.fromDto(eventDto);
         event = eventService.create(event);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(event.getId()).toUri();

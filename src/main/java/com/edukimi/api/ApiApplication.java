@@ -8,6 +8,7 @@ import com.edukimi.api.domain.Event;
 import com.edukimi.api.domain.School;
 import com.edukimi.api.domain.Parent;
 import com.edukimi.api.domain.Student;
+import com.edukimi.api.domain.Teacher;
 import com.edukimi.api.domain.User;
 import com.edukimi.api.repositories.AddressRepository;
 import com.edukimi.api.repositories.ClassroomRepository;
@@ -15,6 +16,7 @@ import com.edukimi.api.repositories.EventRepository;
 import com.edukimi.api.repositories.SchoolRepository;
 import com.edukimi.api.repositories.ParentRepository;
 import com.edukimi.api.repositories.StudentRepository;
+import com.edukimi.api.repositories.TeacherRepository;
 import com.edukimi.api.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +48,9 @@ public class ApiApplication implements CommandLineRunner {
 
 	@Autowired
 	EventRepository eventRepository;
+	
+	@Autowired
+	TeacherRepository teacherRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ApiApplication.class, args);
@@ -98,6 +103,9 @@ public class ApiApplication implements CommandLineRunner {
 		Event event2 = new Event(null, "Festa de natal", "22/04/2021","Festa ocorrerá na quadra da escola", school2);
 		eventRepository.save(event1);		
 		eventRepository.save(event2);		
+
+		Teacher teacher1 = new Teacher(null, "Telma", true, school1);
+		teacherRepository.save(teacher1);
 	}
 
 }
