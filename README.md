@@ -18,16 +18,7 @@
 </p>
 
 
-Features
 
-- [X] Cadastro de usuários
-- [X] Cadastro de escolas
-- [X] Cadastro de turmas
-- [X] Cadastro de alunos
-- [X] Cadastro de responsáveis
-- [X] Cadastro de endereços
-- [X] Cadastro de eventos
-- [ ] Cadastro de professores
 
 ### Pré-requisitos
 
