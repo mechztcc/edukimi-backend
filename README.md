@@ -26,3 +26,21 @@ Features
 - [X] Cadastro de alunos
 - [X] Cadastro de responsáveis
 - [X] Cadastro de endereços
+
+### Pré-requisitos
+
+Antes de começar, você vai precisar ter o java 11 instalado em sua máquina.
+
+### Autor
+---
+
+<a href="https://avatars.githubusercontent.com/u/59654091?s=96&v=4">
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/59654091?s=96&v=4" width="100px;" alt=""/>
+ <br />
+
+
+
+Desenvolvido por Alberto paiva
+<p> <img src="https://img.shields.io/badge/Linkedin-https%3A%2F%2Fwww.linkedin.com%2Fin%2Falberto--paiva--8ba467137%2F-blue"> </p>
+
+
