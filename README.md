@@ -26,6 +26,8 @@ Features
 - [X] Cadastro de alunos
 - [X] Cadastro de responsáveis
 - [X] Cadastro de endereços
+- [X] Cadastro de eventos
+- [ ] Cadastro de professores
 
 ### Pré-requisitos
 
