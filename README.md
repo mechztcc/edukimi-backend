@@ -10,6 +10,8 @@
 	🚧  Edukimi Em construção...  🚧
 </h4>
 
+<p align="center"> <img src="https://img.shields.io/badge/Java-11.0.10-blueviolet"> </p>
+
 <p align="center">
   <a href="#objetivo">Objetivo •<a/>
     <a href="#objetivo">Autor •<a/>
