@@ -4,12 +4,14 @@ import java.util.Arrays;
 
 import com.edukimi.api.domain.Address;
 import com.edukimi.api.domain.Classroom;
+import com.edukimi.api.domain.Event;
 import com.edukimi.api.domain.School;
 import com.edukimi.api.domain.Parent;
 import com.edukimi.api.domain.Student;
 import com.edukimi.api.domain.User;
 import com.edukimi.api.repositories.AddressRepository;
 import com.edukimi.api.repositories.ClassroomRepository;
+import com.edukimi.api.repositories.EventRepository;
 import com.edukimi.api.repositories.SchoolRepository;
 import com.edukimi.api.repositories.ParentRepository;
 import com.edukimi.api.repositories.StudentRepository;
@@ -41,6 +43,9 @@ public class ApiApplication implements CommandLineRunner {
 
 	@Autowired
 	ClassroomRepository classroomRepository;
+
+	@Autowired
+	EventRepository eventRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ApiApplication.class, args);
@@ -89,9 +94,10 @@ public class ApiApplication implements CommandLineRunner {
 		std1.setClassroom(clas1);
 		studentRepository.save(std1);
 		
-
-
-		
+		Event event1 = new Event(null, "02/04/2021", "Festa de pascoa","Festa ocorrerá no dia 02 que cairá em uma sexta feira", school2);
+		Event event2 = new Event(null, "22/04/2021", "Festa de natal","Festa ocorrerá na quadra da escola", school2);
+		eventRepository.save(event1);		
+		eventRepository.save(event2);		
 	}
 
 }
