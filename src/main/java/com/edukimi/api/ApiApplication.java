@@ -94,8 +94,8 @@ public class ApiApplication implements CommandLineRunner {
 		std1.setClassroom(clas1);
 		studentRepository.save(std1);
 		
-		Event event1 = new Event(null, "02/04/2021", "Festa de pascoa","Festa ocorrerá no dia 02 que cairá em uma sexta feira", school2);
-		Event event2 = new Event(null, "22/04/2021", "Festa de natal","Festa ocorrerá na quadra da escola", school2);
+		Event event1 = new Event(null, "Festa de pascoa", "02/04/2021", "Festa ocorrerá no dia 02 que cairá em uma sexta feira", school2);
+		Event event2 = new Event(null, "Festa de natal", "22/04/2021","Festa ocorrerá na quadra da escola", school2);
 		eventRepository.save(event1);		
 		eventRepository.save(event2);		
 	}
