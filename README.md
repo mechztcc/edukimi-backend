@@ -20,9 +20,7 @@
 
 
 
-### Pré-requisitos
 
-Antes de começar, você vai precisar ter o java 11 instalado em sua máquina.
 
 ### Autor
 ---
