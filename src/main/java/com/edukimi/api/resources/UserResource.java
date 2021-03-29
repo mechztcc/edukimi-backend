@@ -27,11 +27,14 @@ public class UserResource {
         List<User> obj = service.findAll();
         return ResponseEntity.ok(obj);
     }
+
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity findUser(@PathVariable Integer id) {
         User obj = service.findById(id);
         return ResponseEntity.ok(obj);
+    
     }
+
 
 
     // @RequestMapping(value = "/{id}", method = RequestMethod.PUT)

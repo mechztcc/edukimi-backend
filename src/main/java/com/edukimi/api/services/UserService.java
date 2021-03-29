@@ -30,6 +30,11 @@ public class UserService {
         return obj.orElseThrow(() -> new RuntimeException("Usuário não encontrado!"));
     }
 
+    public User findByEmail(String email) {
+        User obj = repo.findByEmail(email);
+        return obj;
+    }
+
 
  
 }
